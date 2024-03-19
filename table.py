@@ -103,20 +103,21 @@ class BigTable(object):
         self.x_axis = range(data["range"]["x"]["start"], data["range"]["x"]["end"])
         self.y_axis = range(data["range"]["y"]["start"], data["range"]["y"]["end"])
         
-     
-table = BigTable(36000, 500)
- 
-import time
-x_ = 360
-y_ = 100
 
-start = time.perf_counter()   
-table.full_fill(1000_000)  
-end = time.perf_counter()
-print(end-start)
-t_ = table.dump()
-print(t_)
-new_t = BigTable(1, 1)
-new_t.load(t_)
-print(new_t.get(25, 25))
-print(new_t.partial(1, 17, 20, 90))
+if __name__ == "__main__":
+    table = BigTable(36000, 500)
+    
+    import time
+    x_ = 360
+    y_ = 100
+
+    start = time.perf_counter()   
+    table.full_fill(1000_000)  
+    end = time.perf_counter()
+    print(end-start)
+    t_ = table.dump()
+    print(t_)
+    new_t = BigTable(1, 1)
+    new_t.load(t_)
+    print(new_t.get(25, 25))
+    print(new_t.partial(1, 17, 20, 90))
